@@ -25,7 +25,6 @@ def main():
         print(ex)
 
 def GetLanguage(text):
-
     # Create client using endpoint and key
     credential = AzureKeyCredential(ai_key)
     client = TextAnalyticsClient(endpoint=ai_endpoint, credential=credential)

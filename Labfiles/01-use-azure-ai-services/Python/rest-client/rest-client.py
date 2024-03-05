@@ -3,6 +3,7 @@ import os
 import http.client, base64, json, urllib
 from urllib import request, parse, error
 
+
 def main():
     global ai_endpoint
     global ai_key
@@ -14,15 +15,14 @@ def main():
         ai_key = os.getenv('AI_SERVICE_KEY')
 
         # Get user input (until they enter "quit")
-        userText =''
+        userText = ''
         while userText.lower() != 'quit':
             userText = input('Enter some text ("quit" to stop)\n')
             if userText.lower() != 'quit':
                 GetLanguage(userText)
-
-
     except Exception as ex:
         print(ex)
+
 
 def GetLanguage(text):
     try:
@@ -56,7 +56,6 @@ def GetLanguage(text):
 
         # If the call was successful, get the response
         if response.status == 200:
-
             # Display the JSON response in full (just so we can see it)
             results = json.loads(data)
             print(json.dumps(results, indent=2))
@@ -70,8 +69,6 @@ def GetLanguage(text):
             print(data)
 
         conn.close()
-
-
     except Exception as ex:
         print(ex)
 
